@@ -1,0 +1,14 @@
+<template>
+    
+
+      <div class="slds-p-left_xx-large" >
+            <lightning-slider label="Living" size="medium"  max="10" value={livingScore} onchange={livingScoreC} ></lightning-slider>
+         <lightning-slider label="Neighbourhood" size="medium" value={neighbourhoodScore} max="10" onchange={neighbourhoodScoreC}></lightning-slider>
+          <lightning-slider label="Area" size="medium"  max="10" value={areaScore} onchange={areaScoreC}></lightning-slider>
+           <lightning-slider label="Society" size="medium"  max="10" value={societyScore} onchange={societyScoreC}></lightning-slider> 
+        </div>
+
+        <div class="slds-align-absolute_center slds-p-top_large">
+            <lightning-button variant="success" label="Save Rating" onclick={rateforthisproperty}></lightning-button>
+        </div>
+</template>

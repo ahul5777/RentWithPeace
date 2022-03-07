@@ -1,0 +1,39 @@
+<template>
+
+    <template if:true={isEmpty}>
+
+                <template for:each={faqlist} for:item="faq">
+                    <div key={faq.Id} class="slds-m-around_medium lgc-bg slds-text-align_left">
+                        <lightning-tile  type="media" class="slds-p-vertical_medium">
+                            <lightning-icon slot="media" icon-name="utility:questions_and_answers"></lightning-icon>
+                            <p> <span style="font-weight: bold;">Question: </span> {faq.Question__c }</p>
+                            <p><span style="font-weight: bold;">Answer: </span> {faq.Answers__c}</p>
+                        </lightning-tile>
+                    </div>
+                </template>
+
+
+
+    </template>
+
+
+    <template if:false={isEmpty}>
+        <p>This feels empty!</p>
+    </template>
+
+<template if:true={btnask}>
+    <lightning-button variant="brand" label="Ask a Question"  onclick={openQuestionPanel}></lightning-button>  
+</template>
+
+
+    
+   <template if:true={askQuestion}>
+       <div class="slds-m-around_medium" style="background-color: antiquewhite;">
+   
+       <lightning-input class="slds-p-horizontal_small" placeholder="Add you Question" onchange={questionC} ></lightning-input>
+       <lightning-button label="Ask" variant="brand" class="slds-p-vertical_medium" onclick={questionI}></lightning-button>
+    </div>  
+   </template>
+ 
+
+</template>

@@ -1,0 +1,188 @@
+<template>
+    <div style="background-color: aliceblue;">
+    <lightning-tabset>
+       
+
+        <lightning-tab label="Property Details">
+            <div class="slds-align_absolute-center">
+                     <lightning-formatted-rich-text  value={property.Property_Images__c}></lightning-formatted-rich-text>
+                    
+            </div>
+            <div style="height:1px;width:60%;background-color:black" class="slds-m-top_medium slds-align_absolute-center"></div> 
+          
+
+            <div class="slds-align_absolute-center" >
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12">
+                          <p class="slds-text-heading_medium slds-align_absolute-center slds-p-top_medium" style="font-weight: bold;">Average Ratings</p>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12">
+                  <div style="height: 25px;"></div>
+                  </lightning-layout-item>
+
+                    <lightning-layout-item size="3">
+                            <lightning-progress-ring value={living} size="large" class="slds-p-horizontal_large slds-p-top_large slds-align_absolute-center" variant="base-autocomplete"> </lightning-progress-ring>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                            <lightning-progress-ring value={neighbour} size="large" class="slds-p-horizontal_arge slds-p-top_large slds-align_absolute-center" variant="base-autocomplete"> </lightning-progress-ring>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                            <lightning-progress-ring value={area} size="large" class="slds-p-horizontal_large slds-p-top_large slds-align_absolute-center" variant="base-autocomplete"> </lightning-progress-ring>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                            <lightning-progress-ring value={society} size="large" class="slds-p-horizontal-large slds-p-top_large slds-align_absolute-center" variant="base-autocomplete"> </lightning-progress-ring>
+                        </lightning-layout-item>
+                  
+
+                  <lightning-layout-item size="3">
+                    <p class="slds-p-horizontal-large slds-p-top_large slds-align_absolute-center" style="font-weight: bold;"> Living </p>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <p class="slds-p-horizontal-large slds-p-top_large slds-align_absolute-center" style="font-weight: bold;">Neighbourhood</p>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <p class="slds-p-horizontal-large slds-p-top_large slds-align_absolute-center" style="font-weight: bold;">Area</p>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <p class="slds-p-horizontal-large slds-p-top_large slds-align_absolute-center" style="font-weight: bold;">Society</p>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            </div>
+
+            <div style="height:1px;width:30%;background-color:black ;margin-top: 20px;" class="slds-align_absolute-center"></div> 
+
+            <div class="slds-p-top_large" style="font-size:large">
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="6" class="slds-p-horizontal_medium">
+                  <div class="slds-box slds-p-horizontal_medium" style=" border-radius: 25px;background-color: #08e1ae;
+                  background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);">
+                      <lightning-layout multiple-rows="true">
+                          <lightning-layout-item size="6" class="slds-p-left_medium">
+                                    <div>Property Name:</div> 
+                                    <div>Area:</div>
+                                    <div>Carpet Area</div>
+                                        <div>Covered Area </div>
+                                        <div>Electricity Status:</div>
+                                        <div>Landmark:</div>
+                                        <div>Furnished Type:</div>
+
+                          </lightning-layout-item>
+                        
+
+
+                      
+                      <lightning-layout-item size="6" >
+                                        <div>{property.Name }</div>
+                                            <div>{property.Area__c} </div>
+                                            <div>{property.Carpet_Area_sqft__c} sq.ft.</div>
+                                        <div>{property.Covered_Area__c} sq.ft.</div>
+                                        <div>{property.Electricity_Status__c}</div>
+                                        <div>{property.LandMark__c }</div>
+                                        <div>{property.Furnished_Type__c }</div>
+                        </lightning-layout-item>
+                           </lightning-layout>
+                  </div>
+
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="6" class="slds-p-horizontal_medium">
+                        <div class="slds-box slds-p-horizontal_medium" style=" border-radius: 25px;background-color: #f2cf07;
+                        background-image: linear-gradient(315deg, #f2cf07 0%, #55d284 74%);">
+                            <lightning-layout multiple-rows="true">
+                                <lightning-layout-item size="6" class="slds-p-left_medium">
+                                    <p>Property Rent:</p> 
+                                    <p> Property Maintainance:</p>
+                                    <p>Facing:</p>
+                                        <p>Available for Bachelors:</p>
+                                        
+                                        <p>Floor Available:</p>
+                                        <p>Additional Room:</p>
+                                        <p>Last Activity Date:</p>
+
+                                  </lightning-layout-item>
+
+                                  <lightning-layout-item size="6" >
+                                    <p >₹{property.Rent__c }/-</p>
+                                    <p>₹{property.Maintainance__c  }/-</p>
+                                   <p>{property.Facing__c}</p>
+                                    <p>{property.For_Bacheleros__c}</p>
+                                     <p>{property.Floor__c } </p>
+                                    <p>{property.Additional_Room__c }</p>
+                                    <p>{property.LastActivityDate }</p>
+                                     
+
+
+                                  </lightning-layout-item>
+
+                                  </lightning-layout>
+
+
+                        </div>
+
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+            </div>
+
+            <div class="slds-p-top_large ">
+                <div class="slds-align_absolute-center" style="font-weight:bold;font-style:italic">Been Here Before?👇</div>
+                <div class="slds-p-top_small slds-align_absolute-center"> <lightning-button  label="Rate this Property" variant="brand" onclick={ratepropertyC} disabled={buttondisabled}></lightning-button></div>
+               
+            </div>
+            
+
+            <template if:true={rateproperty}>
+
+
+                <div style="margin-top:5%">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <lightning-button-icon  style="background-color:white" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" icon-name="utility:close" onclick={ratepropertyX}></lightning-button-icon>
+                <header class="slds-modal__header">
+            
+                    
+              <c-rating prop-id={property.Id} onratingadded={refreshrating} ></c-rating>
+                   
+                     
+                 </header>
+                     </div>
+                 
+                
+                 </section>
+                 </div>
+                 <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+            
+            </template>
+
+
+
+            
+        </lightning-tab>
+        
+
+        <lightning-tab label="Video Tour">
+            <div class="slds-align_absolute-center">
+         
+          
+   
+             <iframe width="1200" height="455" src={videoTour} allowfullscreen="true"></iframe>
+            </div>
+           </lightning-tab>
+
+
+           <lightning-tab label="Customer Reviews">
+            <div class="slds-align_absolute-center">
+         
+          
+   Customer Review Aura Component goes here.
+           
+            </div>
+           </lightning-tab>
+
+
+
+       
+    </lightning-tabset>
+</div>
+</template>

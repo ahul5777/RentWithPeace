@@ -1,0 +1,58 @@
+<template>
+    
+    <lightning-layout>
+        
+               <div class="slds-grid slds-gutters">
+
+              
+                      <lightning-layout-item size="4">
+                              <div class="slds-col image-1">
+                                 
+                              
+                                      
+                                      <lightning-formatted-rich-text class="slds-p-horizontal_small"
+                                      value={prop.Owner_Photo__c} style="height:300px;width:300px">
+                                      </lightning-formatted-rich-text>
+
+                                      <lightning-button label="Send a quick Email" variant="brand" onclick={sendMessageClick}></lightning-button>
+                                      
+                                
+                                 
+                                 
+                                  
+                              </div>
+                      </lightning-layout-item>
+
+
+                       <lightning-layout-item size="8" class="slds-p-left_medium slds-align_absolute-center">
+                              <div class="slds-box "  style="width:100%;background-color:white;font-size: large;text-align: justify;padding-left: 60px">
+                                 <p> Name :<span style="font-weight: bold;">{prop.Owner_Name__c}</span> </p>
+                                 <p>Contact: <span style="font-weight: bold;">{prop.Owner_Phone__c}</span></p>
+                                 <p> Address: <span style="font-weight: bold;">{prop.Owner_Address__c}</span></p>
+                              
+                              </div>
+                      </lightning-layout-item> 
+
+      
+                </div> 
+    </lightning-layout>
+
+ <div class="slds-p-top_medium">
+  <template if:true={sendEmail}>
+      <lightning-button-icon icon-name="utility:close" style="float:right" class="slds-p-right_medium" onclick={closeEmail}></lightning-button-icon>
+     
+      <div class="slds-p-vertical_small slds-p-horizontal_small" style="background-image: linear-gradient(to bottom right,#cfd9df , #e2ebf0);">
+       <div style="font-weight: bold;"> Okay! But first check the FAQ section for your answers.It will give you an instant answer🙋‍♂️. Thank us later🤗🥳</div>
+     <lightning-input class="slds-p-top_medium"  data-name="subject" label="Add Subject" placeholder="Add Catchy Subject" variant="label-hidden" onchange={subjectC}></lightning-input>
+     <lightning-input-rich-text data-name="message" class="slds-p-vertical_xx-small"  label="Describe the Situation or Make an Offer!" variant="label-hidden" placeholder="Describe the Situation or Make an Offer!" onchange={messageC} ></lightning-input-rich-text>
+      <lightning-button class="slds-p-vertical_large" label="Send" variant="Success" onclick={sendemail} disabled={buttondisabled}></lightning-button>
+  </div>
+  </template>
+</div>
+  
+
+</template>
+
+
+
+

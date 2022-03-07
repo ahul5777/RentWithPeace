@@ -1,0 +1,116 @@
+<template>
+ <div class="slds-box" style="background-color: #523a78;
+ background-image: linear-gradient(316deg, #523a78 0%, #ee696b 74%); 
+  max-width:100%; margin: 25px 50px 50px 50px;font-family:sans-serif;color:white" >
+      <div class="slds-grid">
+     
+            <div class="slds-col slds-size_4-of-12">
+                       
+                            <lightning-formatted-rich-text style="height:max-content"  value={property.Property_Images__c}> </lightning-formatted-rich-text>
+                    
+            </div>
+
+                      
+                 <div class="slds-col slds-size_6-of-12">
+                                <div class="slds-grid" >
+                                        <div class="slds-col slds-col slds-size_6-of-12" style="font-weight:400px;font-size:medium">
+                                        <p><span class="slds-text-heading_x-small "><span style="font-weight: bold">Property Name: </span>{property.Name} </span></p>
+                                        <p><span class="slds-text-heading_x-small"><span style="font-weight: bold">Property Rent:</span> {property.Rent__c} </span></p>
+                                        <p> <span class="slds-text-heading_x-small"><span style="font-weight: bold">Property Maintainance:</span> {property.Maintainance__c} </span></p>
+                                        <p> <span class="slds-text-heading_x-small"><span style="font-weight: bold">Property LandMark__c:</span> {property.LandMark__c} </span></p>
+                                        </div>
+
+                                        <div class="slds-col slds-col slds-size_6-of-12" style="font-weight:400px;font-size:medium">
+                                        <p><span class="slds-text-heading_x-small "><span style="font-weight: bold">Availabel for Bachelors?: </span>{property.For_Bacheleros__c} </span></p>
+                                        <p><span class="slds-text-heading_x-small"><span style="font-weight: bold">Availabel for Family?:</span> {property.For_Family__c} </span></p>
+                                        <p> <span class="slds-text-heading_x-small"><span style="font-weight: bold">Furnished Type:</span> {property.Furnished_Type__c} </span></p>
+                                        <p> <span class="slds-text-heading_x-small"><span style="font-weight: bold">Propery Carpet Area:</span> {property.Carpet_Area_sqft__c} </span></p>
+                                        </div>
+                                </div>
+                                    <div class="slds-p-vertical_x-large">
+                                        <lightning-button-group>
+                                                <lightning-button label="Owner" variant="Success" class="slds-p-left_small" onclick={showOwnerInfo}></lightning-button>
+                                                <lightning-button label="FAQ" variant="Success" class="slds-p-left_small" onclick={showFAQ}></lightning-button>
+                                                <lightning-button label="Details" variant="Success" class="slds-p-left_small" onclick={navigatetorecordpage}></lightning-button>
+                                        </lightning-button-group>
+                                   </div>  
+                   </div>
+
+                   <div class="slds-col slds-size_2-of-12">
+                    <lightning-button-icon  icon-name="utility:checkin" class="slds-p-right_medium" style="float:right" onclick={locateHandler} ></lightning-button-icon>
+                </div>
+
+
+
+                            
+                       
+                
+  
+
+
+      </div>
+</div>
+
+
+
+
+<template if:true={showOwner}>
+
+
+    <div style="margin-top:5%">
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container">
+        <lightning-button-icon  style="background-color:white" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" icon-name="utility:close" onclick={closeOwnerInfo}></lightning-button-icon>
+    <header class="slds-modal__header">
+
+        
+     <lightning-card title="Property Owner"  >
+      
+          
+          <div class="slds-modal__content slds-p-around_medium" >
+            
+
+         <c-owner-view-form prop={owner}></c-owner-view-form> 
+              
+          </div>
+                      
+      </lightning-card>
+       
+         
+     </header>
+         </div>
+     
+    
+     </section>
+     </div>
+     <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+</template>
+
+
+
+<template if:true={showF}>
+
+
+    <div style="margin-top:5%">
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container" >
+        <lightning-button-icon  style="background-color:white" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" icon-name="utility:close" onclick={closeFAQ}></lightning-button-icon>
+    <header class="slds-modal__header">
+
+        <div class="slds-scrollable" style="height:30rem;width:38rem">
+     <c-faq faqlist={faqList} prop={property.Id} onrefreshque={refreshQue} ></c-faq>
+       </div>
+         
+     </header>
+    </div>
+     
+    
+     </section>
+     </div>
+     <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+</template>
+
+
+</template>

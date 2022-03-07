@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+
+    <lightning:tile label="Person Name" >
+        <p class="slds-truncate">
+        Good Property!    
+        </p>
+
+    </lightning:tile>
+   
+
+
+</aura:component>	
+
